@@ -1,18 +1,24 @@
-//Left click: Advance Lyrics
-//Right click: Go back on Lyrics
-//Center click: Reset Lyrics
-//Q: Next song
-//W: Last song
-//E: Toggle Line/Box Lyric Display
-//+: Extra font
-//_: Jackie Chan / Au Naturale font
-//): Default font
+// Left click: Advance Lyrics
+// Right click: Go back on Lyrics
+// Center click: Reset Lyrics
+// Q: Next song
+// W: Last song
+// E: Toggle Line/Box Lyric Display
+// +: Extra font
+// _: Jackie Chan / Au Naturale font
+// ): Default font
+// z: Subtle vibrate
+// x: More intense vibration
 
 PFont f;  // Global font variable
 int fs = 40; // Font size
 int i = 0; // Lyric index
 int si = 0; // Song index
 int e = 0; // Lyric display toggle index
+int z = 0; // Intense vibration toggle index
+int c = 0; // Brutally Intense vibration toggle index
+int x = 0; // Text X location
+int y = 0; // Text Y location
 
 void setup() {
   fullScreen(2);
@@ -27,6 +33,16 @@ void setup() {
 
 void draw() {
   background(0);
+  x = width/2;
+  y = height/2; 
+  if (z == 1) { //INTENSE VIBRATION
+    x += random(-2, 2);
+    y += random(-2, 2);
+  }
+  if (c == 1) { //MORE INTENSE VIBRATION
+    x += random(-8, 8);
+    y += random(-8, 8);
+  }
   if (e == 0) { //LINE DISPLAY MODE
     if (width <= 400) {
       fs = 20;
@@ -34,18 +50,19 @@ void draw() {
     textFont(f,fs);   
     fill(255);
     textAlign(CENTER);
-    text(lyricssorted[si][i],width/2,height/2);
+    text(lyricssorted[si][i],x,y);
   }
   else if (e == 1) { //BOX DISPLAY MODE
     textLeading(0);
     textFont(f); 
     fill(255);
     textAlign(LEFT);
-    text(lyricssorted[si][i],width/2-200, height/2-200, 300, 800);
+    text(lyricssorted[si][i],x-200, y-200, 300, 800);
   };
 }
   
 void mouseReleased() {
+  //LYRIC CONTROL
   if (mouseButton == LEFT){
     if (i == lyricssorted[si].length-1){
       i = i;
@@ -65,6 +82,7 @@ void mouseReleased() {
 }
 
 void keyReleased() { 
+  //SONG CONTROL
   if (key == 'Q') {
     if (si == lyricssorted.length-1){
         si = si;
@@ -79,6 +97,7 @@ void keyReleased() {
     else si=si-1;
     println("Going back a song");
    }
+   //TOGGLE BOX-LINE VIEW MODE
    if (key == 'E') {
     if (e == 0){
         e = 1;
@@ -89,6 +108,7 @@ void keyReleased() {
       println("Switching to line view mode");
     };
    }
+   //FONT CONTROL
    if (key == '+') {
     f = createFont("SourceCodePro-Regular.ttf", fs);
     println("Switch font to extra font space");
@@ -101,6 +121,32 @@ void keyReleased() {
     f = createFont("Lato-Regular.ttf", fs);
     println("Switch font to default font");
    }
+   //KILL INTENSE VIBRATION
+   if (key == 'z') {
+     if (z == 1){
+         z = 0;
+     }
+   }
+   //KILL THE EVEN MORE INTENSE VIBRATION
+   if (key == 'x') {
+     if (c == 1){
+         c = 0;
+     }
+   }
+}
+void keyPressed() {
+  //INTENSE VIBRATION
+  if (key == 'z') {
+    if (z == 0){
+        z = 1;
+    }
+  }
+  //EVEN MORE INTENSE VIBRATION
+  if (key == 'x') {
+    if (c == 0){
+        c = 1;
+    }
+  }
 }
 
 String[][] lyrics = {
