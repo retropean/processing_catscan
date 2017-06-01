@@ -19,6 +19,10 @@ int z = 0; // Intense vibration toggle index
 int c = 0; // Brutally Intense vibration toggle index
 int x = 0; // Text X location
 int y = 0; // Text Y location
+int bubbletoggle = 0;
+int num = 150;
+int[] bubblex = new int[num];
+int[] bubbley = new int[num];
 
 void setup() {
   fullScreen(2);
@@ -35,15 +39,33 @@ void draw() {
   background(0);
   x = width/2;
   y = height/2; 
-  if (z == 1) { //INTENSE VIBRATION
+  ////////////////////BUBBLE\\\\\\\\\\\\\\\\\\\\
+  if (bubbletoggle == 1) { 
+    for (int i = num-1; i > 0; i--) {
+    bubblex[i] = bubblex[i-1];
+    bubbley[i] = bubbley[i-1];
+    }
+    // Add the new values to the beginning of the array
+    bubblex[0] = mouseX;
+    bubbley[0] = mouseY;
+    // Draw the circles
+    for (int i = 0; i < num; i++) {
+      fill(255-i,255-i,255-i);
+      ellipse(bubblex[i], bubbley[i], i/2.0, i/2.0);
+    }
+  }
+  ////////////////////GENTLE VIBRATION\\\\\\\\\\\\\\\\\\\\
+  if (z == 1) {
     x += random(-2, 2);
     y += random(-2, 2);
   }
-  if (c == 1) { //MORE INTENSE VIBRATION
+  ////////////////////INTENSE VIBRATION\\\\\\\\\\\\\\\\\\\\
+  if (c == 1) {
     x += random(-8, 8);
     y += random(-8, 8);
   }
-  if (e == 0) { //LINE DISPLAY MODE
+  ////////////////////LINE DISPLAY\\\\\\\\\\\\\\\\\\\\
+  if (e == 0) {
     if (width <= 400) {
       fs = 20;
     }
@@ -52,7 +74,8 @@ void draw() {
     textAlign(CENTER);
     text(lyricssorted[si][i],x,y);
   }
-  else if (e == 1) { //BOX DISPLAY MODE
+  ////////////////////BOX DISPLAY\\\\\\\\\\\\\\\\\\\\
+  else if (e == 1) {
     textLeading(0);
     textFont(f); 
     fill(255);
@@ -62,7 +85,7 @@ void draw() {
 }
   
 void mouseReleased() {
-  //LYRIC CONTROL
+  ////////////////////LYRIC CONTROL\\\\\\\\\\\\\\\\\\\\
   if (mouseButton == LEFT){
     if (i == lyricssorted[si].length-1){
       i = i;
@@ -82,7 +105,7 @@ void mouseReleased() {
 }
 
 void keyReleased() { 
-  //SONG CONTROL
+  ////////////////////SONG CONTROL\\\\\\\\\\\\\\\\\\\\
   if (key == 'Q') {
     if (si == lyricssorted.length-1){
         si = si;
@@ -133,6 +156,16 @@ void keyReleased() {
          c = 0;
      }
    }
+   //KILL BUBBLES
+   if (key == 'c') {
+     if (bubbletoggle == 1){
+         bubbletoggle = 0;
+         for (int i = num-1; i > 0; i--) {
+            bubblex[i] = -40;
+            bubbley[i] = -40;
+          }
+     }
+   }
 }
 void keyPressed() {
   //INTENSE VIBRATION
@@ -145,6 +178,12 @@ void keyPressed() {
   if (key == 'x') {
     if (c == 0){
         c = 1;
+    }
+  }
+  //BUBBLE TOGGLE
+  if (key == 'c') {
+    if (bubbletoggle == 0){
+        bubbletoggle = 1;
     }
   }
 }
