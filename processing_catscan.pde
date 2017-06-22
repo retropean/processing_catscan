@@ -51,6 +51,7 @@ void draw() {
     // Draw the circles
     for (int i = 0; i < num; i++) {
       fill(255-i,255-i,255-i);
+      noStroke();
       ellipse(bubblex[i], bubbley[i], i/2.0, i/2.0);
     }
   }
