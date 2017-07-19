@@ -5,10 +5,11 @@
 // W: Last song
 // E: Toggle Line/Box Lyric Display
 // +: Extra font
-// _: Jackie Chan / Au Naturale font
+// _: Jackie Chan / Au Naturale font_
 // ): Default font
 // z: Subtle vibrate
 // x: More intense vibration
+// c: Enable bubbles
 
 PFont f;  // Global font variable
 int fs = 40; // Font size
@@ -28,6 +29,7 @@ void setup() {
   fullScreen(2);
   //size(400,200);
   frameRate(20);
+  noCursor();
   f = createFont("Lato-Regular.ttf", fs);
   
   //View available fonts
@@ -51,7 +53,6 @@ void draw() {
     // Draw the circles
     for (int i = 0; i < num; i++) {
       fill(255-i,255-i,255-i);
-      noStroke();
       ellipse(bubblex[i], bubbley[i], i/2.0, i/2.0);
     }
   }
@@ -1289,7 +1290,61 @@ String[][] lyrics = {
     "",
   },
   {
-  
+    //Cakey Cakey
+    "",
+    "ICE CREAM",
+    "COFFEE",
+    "MUSTARD",
+    "CHERRY PUDDING",
+    "",
+    "You made me a cake and now I’m HAPPY",
+    "I ate so much cake now I’m a FATTY",
+    "Fingers down my throat and now I’m gonna PUKEY",
+    "",
+    "HAPPY > FATTY > PUKEY > HAPPY",
+    "",
+    "ICEBERG LETTUCE",
+    "ORANGE APPLES",
+    "CHOCOLATE POPTARTS",
+    "MELT BANANA",
+    "",
+    "You made me a cake and now I’m HAPPY",
+    "I ate so much cake now I’m a FATTY",
+    "Fingers down my throat and now I’m gonna PUKEY",
+    "",
+    "HAPPY > FATTY > PUKEY > HAPPY",
+    "",
+  },
+  {
+    //When Your Pet Ghost Died
+    "",
+    "If I fed you rotten meat",
+    "would you eat?",
+    "If I gave you tainted steak",
+    "would you partake?",
+    "And if I said it’s human flesh",
+    "would you protest?",
+    "would you detest?",
+    "And if I made you choke it down",
+    "would you drown?",
+    "Your hand is not a pizza cutter.",
+    "My skin is not a blanket.",
+    "I know how hard you cried",
+    "when your pet ghost died...",
+    "",
+    "You were never nice to me",
+    "how could you be?",
+    "And I was never mad with you",
+    "that much was true!",
+    "We were so good together",
+    "birds and feathers, clouds and",
+    "whether or not you tried to finish me,",
+    "that greatly agitated me...",
+    "My head is not a tumbleweed",
+    "your shoes were meant for kicking.",
+    "I know how hard you sighed",
+    "when your pet ghost died...",
+    "",
   },
 };
 
@@ -1320,9 +1375,11 @@ String[][] lyrics = {
 // 23. Cowtown
 // 24. Portly Chap
 // 25. Homework Sucks
+// 26. Cakey Cakey
+// 27. When Your Pet Ghost Died
 ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\
 
 //LOAD THE LYRICS
 String[][] lyricssorted = { 
-  lyrics[22],lyrics[2],lyrics[25]
+  lyrics[18],lyrics[0],lyrics[4],lyrics[7],lyrics[26],lyrics[16],lyrics[27],lyrics[3],lyrics[25]
 };
