@@ -3,13 +3,21 @@
 // Center click: Reset Lyrics
 // Q: Next song
 // W: Last song
+
 // E: Toggle Line/Box Lyric Display
 // +: Extra font
 // _: Jackie Chan / Au Naturale font_
 // ): Default font
 // z: Subtle vibrate
 // x: More intense vibration
+
 // c: Enable bubbles
+
+// Y: Enable box
+// O: Increase box vibration
+// I: Decrease box vibration
+// U: Blackout box
+// L: Enable black box
 
 PFont f;  // Global font variable
 int fs = 40; // Font size
@@ -24,6 +32,18 @@ int bubbletoggle = 0;
 int num = 150;
 int[] bubblex = new int[num];
 int[] bubbley = new int[num];
+
+// Variables for Box Jiggle
+float w = 20;
+float h = 20;
+int blackout_ind = 0;
+float jiggle_amt = 0;
+float color_val = 255;
+int counter = 0;
+int boxvibetoggle = 0;
+int boxgrow = 0;
+int blackboxwidth = 100;
+int blackboxheight = 100;
 
 void setup() {
   fullScreen(2);
@@ -41,6 +61,44 @@ void draw() {
   background(0);
   x = width/2;
   y = height/2; 
+  //////////////////BOX JIGGLE\\\\\\\\\\\\\\\\\\
+  if (boxvibetoggle == 1) { 
+    while(h < height)
+    {
+      while(w < width)
+      {
+        translate(random(-jiggle_amt,jiggle_amt), random(-jiggle_amt,jiggle_amt));
+        color_val = random(255);
+        fill(color_val, 21, 21, 180);
+        rect(w, h, 20, 20);
+        w = w+40;
+      }
+      w = 20;
+      h = h+40;
+      
+      //Blackout spots
+      if (blackout_ind == 1) {
+        while(w < width)
+        {
+          translate(random(-jiggle_amt,jiggle_amt), random(-jiggle_amt,jiggle_amt));
+          fill(0, 0, 0);
+          rect(w, h, 20, 20);
+          w = w+40;
+        }
+      w = 20;
+      h = h+40*random(10);
+      }
+    }
+    if (boxgrow == 1) 
+    {
+      fill(0, 0, 0);
+      rect(mouseX, mouseY, blackboxwidth, blackboxheight); 
+      ++blackboxwidth;
+      ++blackboxheight;
+    }
+    w = 20;
+    h = 20;
+  }
   ////////////////////BUBBLE\\\\\\\\\\\\\\\\\\\\
   if (bubbletoggle == 1) { 
     for (int i = num-1; i > 0; i--) {
@@ -56,17 +114,17 @@ void draw() {
       ellipse(bubblex[i], bubbley[i], i/2.0, i/2.0);
     }
   }
-  ////////////////////GENTLE VIBRATION\\\\\\\\\\\\\\\\\\\\
+  ////////////////GENTLE VIBRATION\\\\\\\\\\\\\\\\
   if (z == 1) {
     x += random(-2, 2);
     y += random(-2, 2);
   }
-  ////////////////////INTENSE VIBRATION\\\\\\\\\\\\\\\\\\\\
+  //////////////////INTENSE VIBRATION\\\\\\\\\\\\\\
   if (c == 1) {
     x += random(-8, 8);
     y += random(-8, 8);
   }
-  ////////////////////LINE DISPLAY\\\\\\\\\\\\\\\\\\\\
+  ////////////////////LINE DISPLAY\\\\\\\\\\\\\\\\\\
   if (e == 0) {
     if (width <= 400) {
       fs = 20;
@@ -76,7 +134,7 @@ void draw() {
     textAlign(CENTER);
     text(lyricssorted[si][i],x,y);
   }
-  ////////////////////BOX DISPLAY\\\\\\\\\\\\\\\\\\\\
+  ////////////////////BOX DISPLAY\\\\\\\\\\\\\\\\\\\
   else if (e == 1) {
     textLeading(0);
     textFont(f); 
@@ -87,7 +145,7 @@ void draw() {
 }
   
 void mouseReleased() {
-  ////////////////////LYRIC CONTROL\\\\\\\\\\\\\\\\\\\\
+  //////////////////LYRIC CONTROL\\\\\\\\\\\\\\\\\\\\
   if (mouseButton == LEFT){
     if (i == lyricssorted[si].length-1){
       i = i;
@@ -107,7 +165,7 @@ void mouseReleased() {
 }
 
 void keyReleased() { 
-  ////////////////////SONG CONTROL\\\\\\\\\\\\\\\\\\\\
+  ////////////////////SONG CONTROL\\\\\\\\\\\\\\\\\\\
   if (key == 'Q') {
     if (si == lyricssorted.length-1){
         si = si;
@@ -152,6 +210,17 @@ void keyReleased() {
          z = 0;
      }
    }
+   //VIBRATING BOXES
+   if (key == 'Y') {
+     if (boxvibetoggle == 1){
+         boxvibetoggle = 0;
+         println("Disable vibrating boxes");
+     }
+     else {
+       boxvibetoggle = 1;
+       println("Enable vibrating boxes");
+     }
+   }
    //KILL THE EVEN MORE INTENSE VIBRATION
    if (key == 'x') {
      if (c == 1){
@@ -168,6 +237,30 @@ void keyReleased() {
           }
      }
    }
+   //INCREASE BOX VIBRATION
+   if (key == 'O') {
+    jiggle_amt = jiggle_amt + .1;
+   }
+   //DECREASE BOX VIBRATION
+   if (key == 'I') {
+    jiggle_amt = jiggle_amt - .1;
+   }
+   //BOX BLACKOUT
+   if (key == 'U') {
+    if( blackout_ind == 1){
+      blackout_ind = 0;
+    }
+    else blackout_ind = 1;
+   }
+   if (key == 'L') {
+    if( boxgrow == 1){
+      boxgrow = 0;
+      blackboxwidth = 100;
+      blackboxheight = 100;
+    }
+    else boxgrow = 1;
+    println("Make a box");
+  }
 }
 void keyPressed() {
   //INTENSE VIBRATION
@@ -1293,24 +1386,39 @@ String[][] lyrics = {
     //Cakey Cakey
     "",
     "ICE CREAM",
+    "",
     "COFFEE",
+    "",
     "MUSTARD",
+    "",
     "CHERRY PUDDING",
     "",
-    "You made me a cake and now I’m HAPPY",
-    "I ate so much cake now I’m a FATTY",
-    "Fingers down my throat and now I’m gonna PUKEY",
+    "You made me a cake and now I’m",
+    "HAPPY",
+    "I ate so much cake now I’m a",
+    "FATTY",
+    "Fingers down my throat and now I’m gonna",
+    "PUKEY",
     "",
-    "HAPPY > FATTY > PUKEY > HAPPY",
+    "HAPPY",
+    "FATTY", 
+    "PUKEY", 
+    "HAPPY",
     "",
     "ICEBERG LETTUCE",
+    "",
     "ORANGE APPLES",
+    "",
     "CHOCOLATE POPTARTS",
+    "",
     "MELT BANANA",
     "",
-    "You made me a cake and now I’m HAPPY",
-    "I ate so much cake now I’m a FATTY",
-    "Fingers down my throat and now I’m gonna PUKEY",
+    "You made me a cake and now I’m",
+    "HAPPY",
+    "I ate so much cake now I’m a",
+    "FATTY",
+    "Fingers down my throat and now I’m gonna",
+    "PUKEY",
     "",
     "HAPPY > FATTY > PUKEY > HAPPY",
     "",
