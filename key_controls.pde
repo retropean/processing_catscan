@@ -62,6 +62,20 @@ void keyReleased() {
       println("Switching to line view mode");
     };
    }
+   if (key == 'K') {
+    if (circletriptoggle == 0){
+        circletriptoggle = 1;
+      } 
+    else circletriptoggle=0;
+    println("Enabling circle trip");
+   }
+   if (key == 'J') {  
+    for (int i=0; i<tileCountX; i++) {
+      hueValues[i] = 195;
+      saturationValues[i] = 100;
+      brightnessValues[i] = (int) random(0,100);
+    }
+  }
    //FONT CONTROL
    if (key == '+') {
     f = createFont("SourceCodePro-Regular.ttf", fs);
