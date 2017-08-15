@@ -1,3 +1,9 @@
+//SET LIST
+//Portly Chap / Non Sequitur / Voodoo Dollhouse / Cakey Cakey /
+//This Adventure’s Happening
+//Your Government Name / Au Naturale (+ FOR DIFFERENT FONT) / Kill the Poor (Y FOR BOX) 
+//Marine Biologist / Stickup
+
 // Left click: Advance Lyrics
 // Right click: Go back on Lyrics
 // Center click: Reset Lyrics
@@ -267,8 +273,4 @@ boolean testFontSize(float s) {
   }
  
   return false;
-} 
-// 360/15 = 24
-// 
-// 600/25
-// 480/20
+}

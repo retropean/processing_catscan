@@ -1194,7 +1194,7 @@ String[][] lyrics = {
 
 //LOAD THE LYRICS
 String[][] lyricssorted = { 
-  lyrics[17],lyrics[0],lyrics[4],lyrics[7],lyrics[26],lyrics[16],lyrics[27],lyrics[3],lyrics[25]
+  lyrics[24],lyrics[16],lyrics[4],lyrics[26],lyrics[0],lyrics[3],lyrics[22],lyrics[13],lyrics[7]
 };
 
 ////////////////////LYRIC KEY\\\\\\\\\\\\\\\\\\\\
