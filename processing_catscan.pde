@@ -2,7 +2,7 @@
 //Portly Chap / Non Sequitur / Voodoo Dollhouse / Cakey Cakey /
 //This Adventure’s Happening
 //Your Government Name / Au Naturale (+ FOR DIFFERENT FONT) / Kill the Poor (Y FOR BOX) 
-//Marine Biologist / Stickup
+//Marine Biologist (USE E FOR FONT) / Stickup
 
 // Left click: Advance Lyrics
 // Right click: Go back on Lyrics
@@ -225,8 +225,8 @@ void draw() {
     println("Best size: "+ bestSize);
     //f = createFont("Ewert-Regular.ttf", fs); // Western Look
     //f = createFont("Fascinate-Regular.ttf", fs); // 60's look
-    //f = createFont("Codystar-Regular.ttf", fs); // Dots
-    f = createFont("BungeeShade-Regular.ttf", fs); // Block
+    f = createFont("Codystar-Regular.ttf", fs); // Dots
+    //f = createFont("BungeeShade-Regular.ttf", fs); // Block
     
     textFont(f);   
     textSize(bestSize);
