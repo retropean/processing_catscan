@@ -191,17 +191,20 @@ static final void toggleSketch(PApplet p) {
 }
  
 // Util Functions for Nested PApplet Sketches:
-static final String getSketchClassName() {
+static final String getSketchClassName() 
+{
   return Thread.currentThread().getStackTrace()[1].getClassName();
 }
  
-static final String[] getSketchNestedClassNames() {
+static final String[] getSketchNestedClassNames() 
+{
   Class[] nested;
- 
-  try {
+  try 
+  {
     nested = Class.forName(getSketchClassName()).getClasses();
   }
-  catch (ClassNotFoundException cause) {
+  catch (ClassNotFoundException cause) 
+  {
     throw new RuntimeException(cause);
   }
  
