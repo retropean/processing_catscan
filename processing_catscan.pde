@@ -34,7 +34,6 @@ void draw() {
   background(0);
   x = width/2;
   y = height/2; 
-  
   //////////////////BOX JIGGLE\\\\\\\\\\\\\\\\\\
   if (boxvibetoggle == 1) { 
     while(h < height)

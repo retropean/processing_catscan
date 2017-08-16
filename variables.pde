@@ -2,7 +2,11 @@ import generativedesign.*;
 import processing.pdf.*;
 import java.util.Calendar;
 
-PFont f;  // Global font variable
+//public static class GlobalEnv {
+//  public static int framerates = 20; // Font size
+//}
+
+PFont f;  // Font variable
 int fs = 40; // Font size
 
 int e = 0; // Lyric display toggle index

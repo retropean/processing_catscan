@@ -1,4 +1,5 @@
-boolean testFontSize(float s) {
+boolean testFontSize(float s) 
+{
   textSize(s);
   // calculate max lines
   int currentLine = 1;
@@ -6,32 +7,39 @@ boolean testFontSize(float s) {
   boolean fitHeight = true;
   int nextWord = 0;
  
-  while (fitHeight) {
-    if (currentLine > maxLines) {
+  while (fitHeight) 
+  {
+    if (currentLine > maxLines) 
+    {
       fitHeight = false;
-    } else {
+    } 
+    else 
+    {
       String temp = words[nextWord];
       // check if single word is already too wide
       if (textWidth(temp)>width)
         return false;
- 
       boolean fitWidth = true;
       // add words until string is too wide  
-      while (fitWidth) {
- 
-        if (textWidth(temp) > width) {
+      while (fitWidth) 
+      {
+        if (textWidth(temp) > width) 
+        {
           currentLine++;
           fitWidth = false;
-        } else {
-          if (nextWord < words.length -1) {
+        } 
+        else 
+        {
+          if (nextWord < words.length -1) 
+          {
             nextWord++;
             temp += " "+words[nextWord];
-          } else
+          } 
+          else
             return true;
         }
       }
     }
   }
- 
   return false;
 }
