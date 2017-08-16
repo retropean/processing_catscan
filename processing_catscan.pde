@@ -1,85 +1,10 @@
-//SET LIST
-//Portly Chap / Non Sequitur / Voodoo Dollhouse / Cakey Cakey /
-//This Adventure’s Happening
-//Your Government Name / Au Naturale (+ FOR DIFFERENT FONT) / Kill the Poor (Y FOR BOX) 
-//Marine Biologist (USE E FOR FONT) / Stickup
-
-// Left click: Advance Lyrics
-// Right click: Go back on Lyrics
-// Center click: Reset Lyrics
-// Q: Next song
-// W: Last song
-
-// E: Toggle Line/Box Lyric Display
-// +: Extra font
-// _: Jackie Chan / Au Naturale font_
-// ): Default font
-// z: Subtle vibrate
-// x: More intense vibration
-
-// c: Enable bubbles
-
-// Y: Enable box
-// O: Increase box vibration
-// I: Decrease box vibration
-// U: Blackout box
-// L: Enable black box
-
-// K: Enable circle trip
-
-import generativedesign.*;
-import processing.pdf.*;
-import java.util.Calendar;
-
-PFont f;  // Global font variable
-int fs = 40; // Font size
-int i = 0; // Lyric index
-int si = 0; // Song index
-int e = 0; // Lyric display toggle index
-int z = 0; // Intense vibration toggle index
-int c = 0; // Brutally Intense vibration toggle index
-int x = 0; // Text X location
-int y = 0; // Text Y location
-
-// Variables for Bubble
-int bubbletoggle = 0;
-int num = 150;
-int[] bubblex = new int[num];
-int[] bubbley = new int[num];
-
-// Variables for Box Jiggle
-float w = 20;
-float h = 20;
-int blackout_ind = 0;
-float jiggle_amt = 0;
-float color_val = 255;
-int counter = 0;
-int boxvibetoggle = 0;
-int boxgrow = 0;
-int blackboxwidth = 100;
-int blackboxheight = 100;
-
-// Variables for Big Words
-float currentSize = 5;
-float bestSize = 5;
-float sizeIncrement = 0.5;
-String[] words;
-boolean searching = true;  
-
-// Variables for circle trip
-int circletriptoggle = 0;
-int tileCountX = 50;
-int tileCountY = 10;
-int[] hueValues = new int[tileCountX];
-int[] saturationValues = new int[tileCountX];
-int[] brightnessValues = new int[tileCountX];
-
+final PApplet headsupwindow = new HeadsUp();
+ 
 void setup() {
-  fullScreen(2);
-  //size(400,200);
+  smooth(4);
   frameRate(20);
   noCursor();
-  colorMode(RGB,255,255,255);
+  colorMode(RGB, 255, 255, 255);
   f = createFont("Lato-Regular.ttf", fs);
   
   // Initial colors for circle trip
@@ -89,12 +14,23 @@ void setup() {
     saturationValues[i] = 100;
     brightnessValues[i] = (int) random(0,100);
   }
-  //View available fonts
-  //String[] fontList = PFont.list();
-  //printArray(fontList);
+ 
+  // Instantiating All Nested PApplet Sketches:
+  String[] sketches = getSketchNestedClassNames();
+  //for (String sketch : sketches)  main(sketch);
+  printArray(sketches);
+ 
+  //runSketch(new String[] { ARGS_FULL_SCREEN, "Full Window" }, another);
+  //runSketch(new String[] { "My Hello Window" }, another);
+  runSketch(new String[] { "My HeadsUp Window" }, headsupwindow);
 }
-
+ 
+void settings() {
+    fullScreen(2);
+}
+ 
 void draw() {
+  
   background(0);
   x = width/2;
   y = height/2; 
@@ -237,6 +173,47 @@ void draw() {
   };
 }
 
+// Util Functions for Hiding/Displaying/Toggling Sketches:
+static final void disableSketch(PApplet p) {
+  p.frame.hide();
+  p.noLoop();
+}
+ 
+static final void activateSketch(PApplet p) {
+  p.frame.show();
+  p.loop();
+}
+ 
+static final void toggleSketch(PApplet p) {
+  boolean isActive = p.frame.isVisible();
+  //p.frame.setVisible(!isActive);
+  p.getSurface().setVisible(!isActive);
+  if (isActive)  p.noLoop();
+  else           p.loop();
+}
+ 
+// Util Functions for Nested PApplet Sketches:
+static final String getSketchClassName() {
+  return Thread.currentThread().getStackTrace()[1].getClassName();
+}
+ 
+static final String[] getSketchNestedClassNames() {
+  Class[] nested;
+ 
+  try {
+    nested = Class.forName(getSketchClassName()).getClasses();
+  }
+  catch (ClassNotFoundException cause) {
+    throw new RuntimeException(cause);
+  }
+ 
+  int idx = 0, len = max(0, nested.length - 2);
+  String[] classes = new String[len];
+ 
+  while (idx != len)  classes[idx] = nested[idx++].getName();
+  return classes;
+}
+ 
 boolean testFontSize(float s) {
   textSize(s);
   // calculate max lines

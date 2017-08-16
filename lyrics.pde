@@ -1047,7 +1047,7 @@ String[][] lyrics = {
     "Dennistown any thing",
     "I got a thing as lemonlike ",
     "as Eagleflight with broken pipes",
-    "You think you&apos;re going unaffected",
+    "You think you're going unaffected",
     "Dealing irresponsibly ",
     "Lost and lonely Lady ",
     "And her bowl of gimpy vines and me",
