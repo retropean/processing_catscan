@@ -56,10 +56,12 @@ void keyReleased() {
     if (e == 0){
         e = 1;
         println("Switching to box view mode");
+        frameRate(600);
       } 
     else {
       e=0;
       println("Switching to line view mode");
+      frameRate(20);
     };
    }
    if (key == 'K') {
