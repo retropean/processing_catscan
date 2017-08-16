@@ -4,8 +4,7 @@ import java.util.Calendar;
 
 PFont f;  // Global font variable
 int fs = 40; // Font size
-int i = 0; // Lyric index
-int si = 0; // Song index
+
 int e = 0; // Lyric display toggle index
 int z = 0; // Intense vibration toggle index
 int c = 0; // Brutally Intense vibration toggle index

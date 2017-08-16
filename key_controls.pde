@@ -1,36 +1,36 @@
 void mouseReleased() {
   //////////////////LYRIC CONTROL\\\\\\\\\\\\\\\\\\\\
   if (mouseButton == LEFT){
-    if (i == lyricssorted[si].length-1){
-      i = i;
+    if (Globals.i == Globals.lyricssorted[Globals.si].length-1){
+      Globals.i = Globals.i;
       currentSize = 5;
       bestSize = 5;
       searching = true;
     }
     else 
     {
-      i=i+1;
+      Globals.i=Globals.i+1;
       currentSize = 5;
       bestSize = 5;
       searching = true;
     }
   }
   else if (mouseButton == RIGHT){
-    if (i == 0){
-      i = 0;
+    if (Globals.i == 0){
+      Globals.i = 0;
       currentSize = 5;
       bestSize = 5;
       searching = true;
     }
     else {
-      i = i-1;
+      Globals.i = Globals.i-1;
       currentSize = 5;
       bestSize = 5;
       searching = true;
     }
   }
   else if (mouseButton == CENTER){
-    i = 0;
+    Globals.i = 0;
     println("Resetting lyric");
   }
 }
@@ -38,17 +38,16 @@ void mouseReleased() {
 void keyReleased() { 
   ////////////////////SONG CONTROL\\\\\\\\\\\\\\\\\\\
   if (key == 'Q') {
-    if (si == lyricssorted.length-1){
-        si = si;
+    if (Globals.si != Globals.lyricssorted.length-1){
+      Globals.si=Globals.si+1;
+      println("Advancing track");
       } 
-    else si=si+1;
-    println("Advancing track");
    }
    if (key == 'W') {
-    if (si == 0){
-        si = 0;
+    if (Globals.si == 0){
+        Globals.si = 0;
       } 
-    else si=si-1;
+    else Globals.si=Globals.si-1;
     println("Going back a song");
    }
    //TOGGLE BOX-LINE VIEW MODE

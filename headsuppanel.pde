@@ -1,4 +1,3 @@
-// Nested PApplet Class B:
 public static final class HeadsUp extends PApplet
 { 
   void setup() 
@@ -7,23 +6,25 @@ public static final class HeadsUp extends PApplet
   }
   void settings() 
   {
-    size(500, 800, JAVA2D);
+    size(700, displayHeight);
     smooth(4);
   }
   void draw() 
   {
     background(0);
-    //text(lyricssorted[si]);
+    int lyriccounter = 0;
+    int lyricheight = 15;
+    textSize(10);
+    while(lyriccounter < Globals.lyricssorted[Globals.si].length)
+    {
+      if(lyriccounter == Globals.i)
+      {
+        fill(#F5AC19);
+      }
+      text(Globals.lyricssorted[Globals.si][lyriccounter],20.0,lyricheight);
+      ++lyriccounter;
+      fill(#FFFFFF);
+      lyricheight = lyricheight + 15;      
+    }
   }
 }
-/*
-  if (e == 0) {
-    if (width <= 400) {
-      fs = 20;
-    }
-    textFont(f,fs);   
-    fill(255);
-    textAlign(CENTER);
-    text(lyricssorted[si][i],x,y);
-  }
-*/
