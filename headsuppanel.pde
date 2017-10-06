@@ -38,7 +38,10 @@ public static final class HeadsUp extends PApplet
     "O: Increase box vibration",
     "I: Decrease box vibration",
     "U: Blackout box",
-    "L: Enable black box"
+    "L: Enable black box",
+    "",
+    "K: Circle Trip",
+    "J: Reshuffle Circle Trip Colours"
     };
     textSize(10);
     while(lyriccounter < Globals.lyricssorted[Globals.si].length)

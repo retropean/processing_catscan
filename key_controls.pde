@@ -82,9 +82,13 @@ void keyReleased()
     if (circletriptoggle == 0)
     {
       circletriptoggle = 1;
+      println("Enabling circle trip");
     } 
-    else circletriptoggle = 0;
-    println("Enabling circle trip");
+    else 
+    {
+      circletriptoggle = 0;
+      println("Disabling circle trip");
+    }
   }
   if (key == 'J') 
   {  

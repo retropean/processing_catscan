@@ -1,8 +1,6 @@
 //SET LIST
-//Portly Chap / Non Sequitur / Voodoo Dollhouse / Cakey Cakey /
-//This Adventure’s Happening
-//Your Government Name / Au Naturale (+ FOR DIFFERENT FONT) / Kill the Poor (Y FOR BOX) 
-//Marine Biologist / StickupQ
+//Cakey Cakey / This Adventure’s Happening / Your Government Name / Lizard Lady
+// Non Sequitur / Marine Biologist (E TO TOGGLE) / Dracula / Voodoo Dollhouse / Azonto Dollhouse / Stickup
 
 // Left click: Advance Lyrics
 // Right click: Go back on Lyrics
@@ -1205,14 +1203,12 @@ public static class Globals {
   //LOAD THE LYRICS
   public static String[][] lyricssorted = 
   { 
-    Globals.lyrics[24],
-    Globals.lyrics[16],
-    Globals.lyrics[4],
     Globals.lyrics[26],
     Globals.lyrics[0],
     Globals.lyrics[3],
-    Globals.lyrics[22],
+    Globals.lyrics[16],
     Globals.lyrics[13],
+    Globals.lyrics[4],
     Globals.lyrics[7]
   };
 }
