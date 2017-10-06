@@ -1,6 +1,7 @@
 import generativedesign.*;
 import processing.pdf.*;
 import java.util.Calendar;
+import processing.video.*;
 
 //public static class GlobalEnv {
 //  public static int framerates = 20; // Font size
@@ -14,6 +15,9 @@ int z = 0; // Intense vibration toggle index
 int c = 0; // Brutally Intense vibration toggle index
 int x = 0; // Text X location
 int y = 0; // Text Y location
+
+int m_vid = 0; // Text Y location
+int n_vid = 0; // Text Y location
 
 // Variables for Bubble
 int bubbletoggle = 0;
@@ -47,3 +51,7 @@ int tileCountY = 10;
 int[] hueValues = new int[tileCountX];
 int[] saturationValues = new int[tileCountX];
 int[] brightnessValues = new int[tileCountX];
+
+// Variables for movies
+Movie lizardlady_film;
+Movie voodoo_film;

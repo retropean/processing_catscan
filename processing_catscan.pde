@@ -7,6 +7,12 @@ void setup() {
   colorMode(RGB, 255, 255, 255);
   f = createFont("Lato-Regular.ttf", fs);
   
+  // Load videos  
+  lizardlady_film = new Movie(this, "lizardlady.mpeg");
+  lizardlady_film.loop();
+  voodoo_film = new Movie(this, "voodoo.mpeg");
+  voodoo_film.loop();
+  
   // Initial colors for circle trip
   for (int i=0; i<tileCountX; i++) 
   {
@@ -34,6 +40,14 @@ void draw() {
   background(0);
   x = width/2;
   y = height/2; 
+  if (m_vid == 1)
+  {
+    image(lizardlady_film, mouseX, mouseY);
+  }
+  if (n_vid == 1)
+  {
+    image(voodoo_film, mouseX, mouseY);
+  }
   //////////////////BOX JIGGLE\\\\\\\\\\\\\\\\\\
   if (boxvibetoggle == 1) { 
     while(h < height)
@@ -213,4 +227,8 @@ static final String[] getSketchNestedClassNames()
  
   while (idx != len)  classes[idx] = nested[idx++].getName();
   return classes;
+}
+
+void movieEvent(Movie m) {
+  m.read();
 }

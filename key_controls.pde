@@ -188,6 +188,22 @@ void keyReleased()
     else boxgrow = 1;
     println("Make a box");
   }
+  if (key == 'M') 
+  {
+    if( m_vid == 0)
+    {
+      m_vid = 1;
+    }
+    else m_vid = 0;
+  }
+  if (key == 'N') 
+  {
+    if( n_vid == 0)
+    {
+      n_vid = 1;
+    }
+    else n_vid = 0;
+  }
 }
 void keyPressed() 
 {
