@@ -1,6 +1,7 @@
 //SET LIST
-//Cakey Cakey / This Adventure’s Happening / Your Government Name / Lizard Lady
-// Non Sequitur / Marine Biologist (E TO TOGGLE) / Dracula / Voodoo Dollhouse / Azonto Dollhouse / Stickup
+//Cakey Cakey / This Adventure’s Happening / Your Government Name / Lizard Lady (M FOR VID)
+// Non Sequitur / Marine Biologist (E TO TOGGLE) / Dracula / Voodoo Dollhouse 
+// Azonto Dollhouse (N FOR VID) / Stickup
 
 // Left click: Advance Lyrics
 // Right click: Go back on Lyrics

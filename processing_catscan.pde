@@ -10,8 +10,10 @@ void setup() {
   // Load videos  
   lizardlady_film = new Movie(this, "lizardlady.mpeg");
   lizardlady_film.loop();
-  voodoo_film = new Movie(this, "voodoo.mpeg");
+  lizardlady_film.volume(0);
+  voodoo_film = new Movie(this, "voodoo.mp4");
   voodoo_film.loop();
+  voodoo_film.volume(0);
   
   // Initial colors for circle trip
   for (int i=0; i<tileCountX; i++) 
@@ -42,7 +44,10 @@ void draw() {
   y = height/2; 
   if (m_vid == 1)
   {
-    image(lizardlady_film, mouseX, mouseY);
+    image(lizardlady_film, 150, 150);
+    image(lizardlady_film, 890, 150);
+    image(lizardlady_film, 150, 600);
+    image(lizardlady_film, 890, 600);
   }
   if (n_vid == 1)
   {
