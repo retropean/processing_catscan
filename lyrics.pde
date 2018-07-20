@@ -1,7 +1,7 @@
 //SET LIST
-//Cakey Cakey / This Adventure’s Happening / Your Government Name / Lizard Lady (M FOR VID)
-// Non Sequitur / Marine Biologist (E TO TOGGLE) / Dracula / Voodoo Dollhouse 
-// Azonto Dollhouse (N FOR VID) / Stickup
+// Reagan’s Ghost / Space Lazer / This Adventure’s Happening / Non Sequitur
+// Cakey Cakey / The Fearless and the Bold / Aminal Planet / Polished to Perfection
+// Au Naturale / Voodoo Dollhouse / Peter’s Problem / Stickup
 
 // Left click: Advance Lyrics
 // Right click: Go back on Lyrics
@@ -1199,18 +1199,60 @@ public static class Globals {
       "when your pet ghost died...",
       "",
     },
+    {
+      //Aminal Planet
+      "This cat is a pig",
+      "has a girl who's a dog",
+      "but thinks she's a fox",
+      "",
+      "The pig is a snake",
+      "who pontificates",
+      "harken, he's blessed ",
+      "",
+      "The fox is a mess ",
+      "a community chest ",
+      "yeah, she gets around",
+      "",
+      "Her face is a cake",
+      "and when she gets baked",
+      "it melts to a frown",
+      "",
+      "They take pictures of each other taking pix of one another",
+      "",
+      "There's some worms with no brains who come out when it rains",
+      "And they squirm on the ground til the birds come around",
+      "It summons the brood",
+      "Putting chicks in the mood ",
+      "A hawk sees the flock and swoops in on a hen",
+      "",
+      "Dressing smart for one another",
+      "so they can undress each other ",
+      "",
+      "The weasel in mink always says what he thinks till the skunk made a stink ",
+      "The Rodents attack but the Varmints fight back and fur starts to fly ",
+      "Caught in the brawl",
+      "The dog tries to call out for the cat ",
+      "Diving into the fray",
+      "He pulls her away",
+      "He just saved the day ",
+      "",
+      "They take pictures of each other",
+      "Taking pix of one another"
+    }
   };
   
   //LOAD THE LYRICS
   public static String[][] lyricssorted = 
   { 
-    Globals.lyrics[26],
+    Globals.lyrics[11],
     Globals.lyrics[0],
-    Globals.lyrics[3],
     Globals.lyrics[16],
-    Globals.lyrics[13],
+    Globals.lyrics[26],
+    Globals.lyrics[28],
+    Globals.lyrics[20],
+    Globals.lyrics[22],
     Globals.lyrics[4],
-    Globals.lyrics[7]
+    Globals.lyrics[7],
   };
 }
 
@@ -1243,4 +1285,5 @@ public static class Globals {
 // 25. Homework Sucks
 // 26. Cakey Cakey
 // 27. When Your Pet Ghost Died
+// 28. Aminal Planet
 ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\

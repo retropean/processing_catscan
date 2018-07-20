@@ -41,7 +41,10 @@ public static final class HeadsUp extends PApplet
     "L: Enable black box",
     "",
     "K: Circle Trip",
-    "J: Reshuffle Circle Trip Colours"
+    "J: Reshuffle Circle Trip Colours",
+    "",
+    "M: Lizard Lady video",
+    "N: Voodoo Dollhouse video"
     };
     textSize(10);
     while(lyriccounter < Globals.lyricssorted[Globals.si].length)

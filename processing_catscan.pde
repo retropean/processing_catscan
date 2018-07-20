@@ -28,8 +28,6 @@ void setup() {
   //for (String sketch : sketches)  main(sketch);
   printArray(sketches);
  
-  //runSketch(new String[] { ARGS_FULL_SCREEN, "Full Window" }, another);
-  //runSketch(new String[] { "My Hello Window" }, another);
   runSketch(new String[] { "My HeadsUp Window" }, headsupwindow);
 }
  
@@ -61,8 +59,14 @@ void draw() {
       {
         translate(random(-jiggle_amt,jiggle_amt), random(-jiggle_amt,jiggle_amt));
         color_val = random(255);
-        fill(color_val, 21, 21, 180);
-        rect(w, h, 20, 20);
+        color_val_2 = random(255);
+        color_val_3 = random(255);
+        //Red Version
+        //fill(color_val, 21, 21, 180);
+        //Rainbow version
+        fill(color_val, color_val_2, color_val_3, 180);
+        // Switched to 10 for smaller, originally coded with 20
+        rect(w, h, 10, 10);
         w = w+40;
       }
       w = 20;
